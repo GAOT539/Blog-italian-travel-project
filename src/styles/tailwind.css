@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-fumo-50 font-corpo text-carbone-900 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-titolo text-carbone-950;
+  }
+}
+
+@layer components {
+  .gruppo-rivelazione {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .gruppo-rivelazione.visibile {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .vetro {
+    @apply border border-ceniza-200/80 bg-white/75 shadow-sm backdrop-blur-md;
+  }
+
+  .tarjeta-dinamica {
+    @apply rounded-2xl border border-ceniza-200/90 bg-white/85 shadow-sm transition duration-300 ease-out;
+  }
+
+  .tarjeta-dinamica:hover {
+    @apply -translate-y-1 shadow-morbida;
+  }
+
+  .boton-dinamico {
+    @apply transition duration-300 ease-out;
+  }
+
+  .boton-dinamico:hover {
+    @apply -translate-y-0.5;
+  }
+
+  .panel-menu-movil {
+    @apply border-t border-ceniza-200/80 bg-white/95 backdrop-blur-xl;
+  }
+}

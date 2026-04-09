@@ -1,0 +1,59 @@
+<%- include('partials/header', { tituloPagina, rutaActiva }) %>
+
+<section class="mx-auto max-w-3xl space-y-8">
+  <div class="gruppo-rivelazione space-y-4 text-center">
+    <p class="text-xs uppercase tracking-[0.35em] text-ciano-700">Contatto e iscrizione</p>
+    <h1 class="text-[2.1rem] sm:text-[3rem]">Parliamo del tuo prossimo progetto</h1>
+    <p class="text-base leading-relaxed text-carbone-900/80 md:text-lg">
+      Scrivici per collaborazioni, proposte o domande. Rispondiamo rapidamente.
+    </p>
+  </div>
+
+  <% if (estadoEnvio) { %>
+    <div
+      class="gruppo-rivelazione rounded-2xl border px-5 py-4 text-sm font-medium <%= estadoEnvio.tipo === 'ok' ? 'border-ciano-500/40 bg-ciano-400/10 text-ciano-700' : 'border-red-200 bg-red-50 text-red-700' %>"
+    >
+      <%= estadoEnvio.texto %>
+    </div>
+  <% } %>
+
+  <form action="/contatto" method="post" class="gruppo-rivelazione space-y-4 rounded-2xl p-6 vetro sm:p-8">
+    <label class="block space-y-2">
+      <span class="text-sm font-semibold text-carbone-900">Nome</span>
+      <input
+        type="text"
+        name="nome"
+        value="<%= valoresFormulario.nombre %>"
+        class="w-full rounded-xl border border-ceniza-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-ciano-500 focus:ring-2 focus:ring-ciano-400/30"
+        required
+      />
+    </label>
+
+    <label class="block space-y-2">
+      <span class="text-sm font-semibold text-carbone-900">Email</span>
+      <input
+        type="email"
+        name="email"
+        value="<%= valoresFormulario.correo %>"
+        class="w-full rounded-xl border border-ceniza-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-ciano-500 focus:ring-2 focus:ring-ciano-400/30"
+        required
+      />
+    </label>
+
+    <label class="block space-y-2">
+      <span class="text-sm font-semibold text-carbone-900">Messaggio</span>
+      <textarea
+        name="messaggio"
+        rows="6"
+        class="w-full rounded-xl border border-ceniza-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-ciano-500 focus:ring-2 focus:ring-ciano-400/30"
+        required
+      ><%= valoresFormulario.mensaje %></textarea>
+    </label>
+
+    <button type="submit" class="boton-dinamico rounded-full bg-carbone-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white hover:bg-ciano-700">
+      Invia
+    </button>
+  </form>
+</section>
+
+<%- include('partials/footer') %>

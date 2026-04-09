@@ -1,0 +1,20 @@
+services:
+  blog:
+    build:
+      context: .
+      target: desarrollo
+    container_name: blog_profesional_dev
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      PORT: 3000
+      CHOKIDAR_USEPOLLING: "true"
+    command: npm run dev
+    volumes:
+      - .:/app
+      - dependencias_blog:/app/node_modules
+
+volumes:
+  dependencias_blog:

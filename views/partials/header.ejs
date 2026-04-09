@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= tituloPagina %> | Blog Sigillo di Gatto</title>
+    <meta
+      name="description"
+      content="Blog professionale su strategia, design e tecnologia con un approccio editoriale moderno."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute -left-24 -top-20 h-72 w-72 rounded-full bg-ciano-400/20 blur-3xl"></div>
+      <div class="absolute -right-24 top-1/3 h-80 w-80 rounded-full bg-ceniza-300/40 blur-3xl"></div>
+      <div class="absolute bottom-0 left-1/4 h-64 w-64 rounded-full bg-ciano-500/10 blur-3xl"></div>
+    </div>
+
+    <header class="sticky top-0 z-20 border-b border-ceniza-300/60 bg-white/85 backdrop-blur-xl">
+      <div class="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 lg:px-10">
+        <div class="flex items-center justify-between gap-4">
+          <a href="/" class="group flex min-w-0 items-center gap-3">
+            <div class="h-10 w-10 overflow-hidden rounded-2xl border border-ceniza-200 bg-white shadow-sm sm:h-12 sm:w-12">
+              <img
+                src="/images/logo.png"
+                alt="Logo Sigillo di Gatto"
+                class="h-full w-full object-contain p-1 transition duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div class="min-w-0">
+              <p style="font-family: 'Playfair Display', serif;" class="truncate text-[1.55rem] leading-none text-carbone-950 sm:text-[1.85rem]">Sigillo di Gatto</p>
+              <p class="text-[0.62rem] uppercase tracking-[0.28em] text-ciano-700/80 sm:text-[0.69rem]">Blog</p>
+            </div>
+          </a>
+
+          <button
+            type="button"
+            class="flex h-11 w-11 items-center justify-center rounded-xl border border-ceniza-300 bg-white/90 text-carbone-900 shadow-sm transition duration-300 hover:border-ciano-500 hover:text-ciano-700 md:hidden"
+            aria-label="Apri menu di navigazione"
+            aria-controls="menu-mobile"
+            aria-expanded="false"
+            data-menu-boton
+          >
+            <span class="sr-only">Apri menu di navigazione</span>
+            <span class="flex flex-col gap-[5px]">
+              <span
+                data-menu-linea="superior"
+                class="block h-0.5 w-6 origin-center rounded-full bg-current transition-all duration-300"
+              ></span>
+              <span
+                data-menu-linea="media"
+                class="block h-0.5 w-6 origin-center rounded-full bg-current transition-all duration-300"
+              ></span>
+              <span
+                data-menu-linea="inferior"
+                class="block h-0.5 w-6 origin-center rounded-full bg-current transition-all duration-300"
+              ></span>
+            </span>
+          </button>
+
+          <nav class="hidden items-center gap-2 text-sm font-semibold text-carbone-900 md:flex">
+            <a
+              href="/"
+              class="rounded-full px-4 py-2 transition duration-300 <%= rutaActiva === 'home' ? 'bg-carbone-900 text-white shadow-sm' : 'hover:bg-ceniza-200/70' %>"
+              >Inizio</a
+            >
+            <a
+              href="/chi-siamo"
+              class="rounded-full px-4 py-2 transition duration-300 <%= rutaActiva === 'chi-siamo' ? 'bg-carbone-900 text-white shadow-sm' : 'hover:bg-ceniza-200/70' %>"
+              >Chi Siamo</a
+            >
+            <a
+              href="/contatto"
+              class="rounded-full px-4 py-2 transition duration-300 <%= rutaActiva === 'contatto' ? 'bg-carbone-900 text-white shadow-sm' : 'hover:bg-ceniza-200/70' %>"
+              >Contatto</a
+            >
+          </nav>
+        </div>
+      </div>
+
+      <div
+        id="menu-mobile"
+        data-menu-panel
+        class="panel-menu-movil max-h-0 overflow-hidden opacity-0 pointer-events-none transition-all duration-300 ease-out md:hidden"
+      >
+        <nav class="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-4 text-sm font-semibold text-carbone-900 sm:px-6">
+          <a
+            href="/"
+            class="rounded-xl px-4 py-3 transition duration-300 <%= rutaActiva === 'home' ? 'bg-carbone-900 text-white shadow-sm' : 'hover:bg-ceniza-200/70' %>"
+            >Inizio</a
+          >
+          <a
+            href="/chi-siamo"
+            class="rounded-xl px-4 py-3 transition duration-300 <%= rutaActiva === 'chi-siamo' ? 'bg-carbone-900 text-white shadow-sm' : 'hover:bg-ceniza-200/70' %>"
+            >Chi Siamo</a
+          >
+          <a
+            href="/contatto"
+            class="rounded-xl px-4 py-3 transition duration-300 <%= rutaActiva === 'contatto' ? 'bg-carbone-900 text-white shadow-sm' : 'hover:bg-ceniza-200/70' %>"
+            >Contatto</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto w-full max-w-7xl flex-grow px-4 pb-16 pt-8 sm:px-6 md:pt-10 lg:px-10">
