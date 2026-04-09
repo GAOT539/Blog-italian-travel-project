@@ -4,11 +4,7 @@
   "description": "Aplicacion web de blog profesional con Express, EJS y Tailwind CSS",
   "main": "server.js",
   "scripts": {
-    "dev": "concurrently \"npm:dev:server\" \"npm:dev:css\"",
-    "dev:server": "nodemon server.js",
-    "dev:css": "tailwindcss -i ./src/styles/tailwind.css -o ./public/css/styles.css --watch",
-    "css:build": "tailwindcss -i ./src/styles/tailwind.css -o ./public/css/styles.css --minify",
-    "prestart": "npm run css:build",
+    "build": "tailwindcss -i ./src/styles/tailwind.css -o ./public/css/styles.css --minify",
     "start": "node server.js"
   },
   "keywords": [
@@ -20,14 +16,14 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "ejs": "^3.1.10",
-    "express": "^4.21.2"
-  },
-  "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "concurrently": "^9.2.1",
-    "nodemon": "^3.1.10",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.10"
   }
 }
